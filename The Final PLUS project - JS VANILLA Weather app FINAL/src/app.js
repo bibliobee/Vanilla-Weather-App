@@ -1,30 +1,43 @@
-let submit = document.querySelector(`#submit`);
-submit.addEventListener(`click`, logCityName);
+function displayDate() {
+  let date = new Date(timestamp);
+  let hours = date.getHours;
+  let minutes = date.getMinutes;
+  if (minutes<10) {
+    minutes = `0${minutes}`;
+  }
 
-function logCityName(event) {
-  event.preventDefault();
-  let city = getCityName();
-  console.log(city);
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = city;
+let days = [
+"Sunday",
+ "Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday"
+];
+let day = days[date.getDay()];
+return `${day} ${hours}:${minutes};
 }
 
-function getCityName() {
-  event.preventDefault();
-  let city = document.querySelector(`#cityName`).value;
-  let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
-  let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=${metric}`;
-  axios.get(url).then(getCityName);
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let precipitationElement = document.querySelector("#precipitation");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind);
+let cityElement = document.querySelector("#city");
+let iconElement = document.querySelector("#icon");
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  humidityElement.innerHTML = response.data.main.humidity;
+  precipitationElement.innerHTML = response.data.main.precipitation;
+  windElement.innerHTML = Math.round(response.data.main.wind.speed);
+dateElement.innerHTML = formatDate(response.data.dt *1000);
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
-let lat = document.querySelector(`response.data.lat`);
-let lon = document.querySelector(`response.data.lon`);
-let metric = document.querySelector(math.round(`response.data.temp`));
-let url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=${metric}`;
-axios.get(url).then(currentTemp);
-
-function currentTemp(response) {
-  let temperature = document.querySelector(`response.data.temp`);
-  h1.innerHTML(`temperature`);
-}
+let apiKey = "63214c4281922e3bb72fdf12dada7734";
+let apiUrl =
+  "https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={apiKey}&units={metric}";
+  axios.get(url).then(displayTemperature);

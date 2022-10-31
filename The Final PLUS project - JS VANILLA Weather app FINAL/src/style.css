@@ -1,4 +1,16 @@
-.vanilla-weather-app {
+.overview {
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 36px;
+}
+.weather-app-wrapper {
+  border: rgb(135, 135, 135);
+  margin: 0 auto;
+}
+
+.weather {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
@@ -6,6 +18,10 @@
   border-radius: 10px;
 }
 
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+}
 h1 {
   color: #878787;
   font-size: 24px;
@@ -20,4 +36,9 @@ li {
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+}
+
+ul {
+  margin: 0;
+  padding: 0px;
 }
