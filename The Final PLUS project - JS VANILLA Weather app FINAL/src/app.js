@@ -33,7 +33,7 @@ let iconElement = document.querySelector("#icon");
   precipitationElement.innerHTML = response.data.main.precipitation;
   windElement.innerHTML = Math.round(response.data.main.wind.speed);
 dateElement.innerHTML = formatDate(response.data.dt *1000);
-iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("src", `openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
@@ -41,3 +41,12 @@ let apiKey = "63214c4281922e3bb72fdf12dada7734";
 let apiUrl =
   "https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={apiKey}&units={metric}";
   axios.get(url).then(displayTemperature);
+
+  function search(event) {
+    event.preventDefault;
+let cityInputElement = document.querySelector("#city-input");
+console.log(cityInputElement.value);
+  }
+  
+  let form = document.querySelector(#search-form);
+  form.addEventListern("submit", search);

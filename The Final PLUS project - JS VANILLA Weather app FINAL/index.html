@@ -17,7 +17,28 @@
     <div class="container">
     <div class="weather-app-wrapper">
       <div class="weather">
-        <div class="overview">
+       <form id="search-form" class="mb-3">
+        <div class="row">
+          <div class="col-9">
+
+        <input 
+        type="search" 
+        placeholder="search any city" 
+        id="city-input"
+        class="form-control"
+        autocomplete="off"
+        />
+        </div>
+        <div class="col-3"
+        id="btn btn-primary w-100">
+        
+        <input type="submit"
+        value="Search" />
+        </div>
+        </div>
+       </form>
+
+      <div class="overview">
           <h1 id="city">New York</h1>
           <ul>
             <li>Friday 05:00</li>
@@ -31,7 +52,7 @@
                   alt="Clear"
                 />
                 </div>
-                              <div class="temperature"></div>
+             <div class="temperature"></div>
                 12°C | °F
               </div>
             </div>
